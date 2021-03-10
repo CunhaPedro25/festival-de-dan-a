@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Festival - Informações</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" type="text/css" href="./estilo.css"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+    <style>
+        #header-buttons a:nth-child(2):after{
+            transform: scaleX(1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="./index.html">
+            <h1>Festival de Dança na ESM</h1>
+        </a>
+        <div id="header-buttons">
+            <a href="./grupos.html">Grupos</a>
+            <a href="#">Informações</a>
+            <a href="./galeria.html">Galeria</a>
+        </div>
+    </header>
+
+
+    <div class="content-box">
+        <div style="top: 120px;" id="map"></div>
+    </div>
+
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        var schoolMap = L.map('map').setView([41.6936, -8.8417], 16);
+
+        L.tileLayer( 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+            subdomains: ['a','b','c']
+        }).addTo(schoolMap);
+
+        L.marker( [41.69365, -8.84166] )
+            .addTo(schoolMap);
+    </script>
+</body>
+</html>

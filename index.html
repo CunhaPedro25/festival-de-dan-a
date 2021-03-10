@@ -12,12 +12,14 @@
     </head>
     <body>
         <header>
-            <a href="https://www.esmonserrate.org/">
-                <img width="150" src="./img/logo_esm_cor.png"/>
-            </a>
             <a href="#">
                 <h1>Festival de Dança na ESM</h1>
             </a>
+            <div id="header-buttons">
+                <a href="./grupos.html">Grupos</a>
+                <a href="./info.html">Informações</a>
+                <a href="./galeria.html">Galeria</a>
+            </div>
         </header>
         <div id="content">
             <div id="big-title">
@@ -25,16 +27,88 @@
                 <p>Estamos cá e continuamos a cuidar de N@S&@utros</p>
             </div>
             <div id="description">
-                <iframe src="https://www.youtube.com/embed/Xw6k6Ma0oqo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                <p>Vem dançar, Vem te divertir</p>
+                <div id="lado-esquerda">
+                    <div id="imagem-grupo"></div>
+                </div>
+                <div id="lado-direita">
+                    <div id="grupos">
+                        <div id="grupo-1" style="visibility: hidden; position: absolute;">
+                            <p>Viana Dancers</p>
+                            <p></p>
+                        </div>
+                        <div id="grupo-2" style="visibility: hidden; position: absolute;">
+                            <p>Socos e Murros</p>
+                        </div>
+                        <div id="grupo-3" style="visibility: hidden; position: absolute;">
+                            <p>Irmandade de Patos</p>
+                        </div>
+                        <div id="grupo-4" style="visibility: hidden; position: absolute;">
+                            <p>FrontStreet Boys</p>
+                        </div>
+                        <div id="grupo-5" style="visibility: hidden; position: absolute;">
+                            <p>Os Arriba Espanha</p>
+                        </div>
+                        <div id="grupo-6" style="visibility: hidden; position: absolute;">
+                            <p>Arrail Minhoto</p>
+                        </div>
+                    </div>
+                    <a>Ver Grupos</a>
+                </div>
             </div>
             <div id="info">
-                <p id="data">17 Abril 21:00</p>
-                <p id="local-hora">Escola Secundária de Monserrate</p>
+                <div id="lado-esquerda">
+                    <p id="data">17 Abril 21:00</p>
+                    <div id="countdown"></div>
+                </div>
+                <div id="lado-direita">
+                    <p id="local-hora">Escola Secundária de Monserrate</p>
+                    <a>Ver Localização</a>
+                </div>
             </div>
         </div>
         <footer>
             <img src="./img/footer.jpg">
         </footer>
     </body>
+    <script>
+        var countDownDate = new Date("Apr 17, 2021 21:00:01").getTime(); //Data do countdown
+        
+        var x = setInterval(function() {
+            var now = new Date().getTime(); //Cria variavel com o tempo neste momento
+                
+            var distance = countDownDate - now; //Calcula quanto tempo falta da agora até a data marcada
+                
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24)); //Calcula os dias
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)); //Calcula as horas
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));  //Calcula os minutos
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);  //Calcula os segundos
+                
+            document.getElementById("countdown").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s "; //Vai buscar o contuedo com a ID "countdown" e escreve os dias, horas, minutos, e segundos
+            
+            if (distance < 0) { // Se passar da data
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "EXPIRED"; //Mostra que o tempo esgotou
+            }
+        }, 1000); //Espera sempre 1 segundo antes de mudar os valores ou de verificar os valores
+
+        // GRUPOS
+        var grupo = 1;
+        document.getElementById("imagem-grupo").style.backgroundImage = "url('./img/grupos/grupo-1.png')";
+        document.getElementById("grupo-" + grupo).style.position = "";
+        document.getElementById("grupo-" + grupo).style.visibility = "visible";
+
+        setInterval(function(){
+            document.getElementById("grupo-" + grupo).style.visibility = "hidden";
+            document.getElementById("grupo-" + grupo).style.position = "absolute";
+            
+            grupo++;
+            if(grupo == 7){
+                grupo = 1;
+            }
+
+            document.getElementById("imagem-grupo").style.backgroundImage = "url('./img/grupos/grupo-" + grupo + ".png')";
+            document.getElementById("grupo-" + grupo).style.position = "";
+            document.getElementById("grupo-" + grupo).style.visibility = "visible";
+        },5000);
+    </script>
 </html>
