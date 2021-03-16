@@ -5,10 +5,12 @@ body{
 }
 
 header{
-    position: fixed;
+    position: sticky;
+    z-index: 2000;
     top: 0;
     margin: 0;
     width: 100%;
+    height: 90px;
     display: flex;
     background-color: white;
     box-shadow: 1px 3px 1px 1px rgba(0,0,0,.5);
@@ -50,90 +52,57 @@ header a{
 #content{
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
 }
 
-#big-title,
-#description,
-#info{
+#content a{
+    padding: 5px 10px;
+    transition: all 0.5s;
+    margin: auto;
+    margin-top: 0;
+    border-radius: 5px;
+    text-decoration: none;
+    color: black;
+}
+
+#content a:hover{
+    background-color: rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+
+.big-title,
+.description,
+.info{
     width: 100%;
-    height: 100vh;
 }
 
-#lado-esquerda,
-#lado-direita{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-    align-items: center;
-    justify-content: center;
-}
-
-#lado-esquerda,
-#lado-direita p{
-    font-size: 40px;
-    margin: 0;
-}
-
-#big-title{
-    background-image: url("./img/backgroundDancing.png");
+.big-title{
+    height: 50vh;
     background-attachment: fixed;
     background-size: cover;
 
     display: flex;
     flex-direction: column;
 }
-#big-title h1{
-    margin: auto;
-    margin-bottom: 0;
-    font-size: 100px;
-}
-#big-title p{
-    margin: auto;
-    margin-top: 0;
-    font-size: 30px;
-}
 
-#description{
-    display: grid;
-
-    grid-template-columns: 50% 50%;
-    background-color: white;
-    font-size: 30px;
-}
-#description iframe{
+.gradient{
     width: 100%;
     height: 100%;
-}
-
-#imagem-grupo{
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-}
-#grupos{
+    background-image: linear-gradient(transparent, white);
+    
     display: flex;
     flex-direction: column;
-}
-#grupos div{
     text-align: center;
-    visibility: hidden;
-    margin: 0;
+}
+.gradient h1{
+    font-size: 60px;
+    margin: auto;
 }
 
-#info{
-    background-image: url("./img/escolaBackground.png");
-    background-size: cover;
-    
-    display: grid;
-    grid-template-columns: 50% 50%;
-}
-
-#map {
-    height: 400px;
-    width: 600px;
+#content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .active {

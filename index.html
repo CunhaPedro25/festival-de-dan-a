@@ -4,6 +4,7 @@
         <title>Festival de Dança</title>
 
         <link rel="stylesheet" type="text/css" href="./estilo.css"/>
+        <link rel="stylesheet" type="text/css" href="./css/index.css"/>
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet"> 
         <meta charset="UTF-8">
@@ -22,47 +23,61 @@
             </div>
         </header>
         <div id="content">
-            <div id="big-title">
-                <h1>Festival de Dança na ESM</h1>    
-                <p>Estamos cá e continuamos a cuidar de N@S&@utros</p>
-            </div>
-            <div id="description">
-                <div id="lado-esquerda">
-                    <div id="imagem-grupo"></div>
+            <div class="big-title">
+                <div class="gradient">
+                    <h1>Festival de Dança na ESM</h1>    
+                    <p>Estamos cá e continuamos a cuidar de N@S&@utros</p>
                 </div>
-                <div id="lado-direita">
-                    <div id="grupos">
-                        <div id="grupo-1" style="visibility: hidden; position: absolute;">
-                            <p>Viana Dancers</p>
-                            <p></p>
+            </div>
+            <div class="description">
+                <div class="lado-esquerda">
+                    <div id="imagem-grupo" class="imagem-grupo"></div>
+                </div>
+                <div class="lado-direita">
+                    <div class="grupos">
+                        <div id="grupos" class="grupos">
+                            <div id="grupo-1" style="visibility: hidden; position: absolute;">
+                                <h2>Viana Dancers</h2>
+                                <p></p>
+                            </div>
+                            <div id="grupo-2" style="visibility: hidden; position: absolute;">
+                                <h2>Socos e Murros</h2>
+                            </div>
+                            <div id="grupo-3" style="visibility: hidden; position: absolute;">
+                                <h2>Irmandade de Patos</h2>
+                            </div>
+                            <div id="grupo-4" style="visibility: hidden; position: absolute;">
+                                <h2>FrontStreet Boys</h2>
+                                <p>"Nesta quarentena, é Divertir e Curtir!"</p>
+                                <p>Diversão é com eles. Venha se divertir com os FrontStreet Boys no Festival de dança na ESM</p>
+                            </div>
+                            <div id="grupo-5" style="visibility: hidden; position: absolute;">
+                                <h2>Os Arriba Espanha</h2>
+                            </div>
+                            <div id="grupo-6" style="visibility: hidden; position: absolute;">
+                                <h2>Arraial Minhoto</h2>
+                            </div>
                         </div>
-                        <div id="grupo-2" style="visibility: hidden; position: absolute;">
-                            <p>Socos e Murros</p>
-                        </div>
-                        <div id="grupo-3" style="visibility: hidden; position: absolute;">
-                            <p>Irmandade de Patos</p>
-                        </div>
-                        <div id="grupo-4" style="visibility: hidden; position: absolute;">
-                            <p>FrontStreet Boys</p>
-                        </div>
-                        <div id="grupo-5" style="visibility: hidden; position: absolute;">
-                            <p>Os Arriba Espanha</p>
-                        </div>
-                        <div id="grupo-6" style="visibility: hidden; position: absolute;">
-                            <p>Arrail Minhoto</p>
-                        </div>
+                        <a href="./grupos.html">Ver Grupos</a>
                     </div>
-                    <a>Ver Grupos</a>
+                    <ul>
+                        <li class="" onclick="gotoSlide(1)" data-slide></li>
+                        <li class="" onclick="gotoSlide(2)" data-slide></li>
+                        <li class="" onclick="gotoSlide(3)" data-slide></li>
+                        <li class="" onclick="gotoSlide(4)" data-slide></li>
+                        <li class="" onclick="gotoSlide(5)" data-slide></li>
+                        <li class="" onclick="gotoSlide(6)" data-slide></li>
+                    </ul>
                 </div>
             </div>
-            <div id="info">
-                <div id="lado-esquerda">
+            <div class="info">
+                <div class="lado-esquerda">
                     <p id="data">17 Abril 21:00</p>
                     <div id="countdown"></div>
                 </div>
-                <div id="lado-direita">
+                <div class="lado-direita">
                     <p id="local-hora">Escola Secundária de Monserrate</p>
-                    <a>Ver Localização</a>
+                    <a href="./info.html">Mais Informações</a>
                 </div>
             </div>
         </div>
@@ -92,23 +107,44 @@
         }, 1000); //Espera sempre 1 segundo antes de mudar os valores ou de verificar os valores
 
         // GRUPOS
+        let slideBtns = document.querySelectorAll("[data-slide]");
         var grupo = 1;
+        var tempo = 5;  //Segundos
+
         document.getElementById("imagem-grupo").style.backgroundImage = "url('./img/grupos/grupo-1.png')";
         document.getElementById("grupo-" + grupo).style.position = "";
         document.getElementById("grupo-" + grupo).style.visibility = "visible";
-
-        setInterval(function(){
-            document.getElementById("grupo-" + grupo).style.visibility = "hidden";
-            document.getElementById("grupo-" + grupo).style.position = "absolute";
-            
-            grupo++;
-            if(grupo == 7){
-                grupo = 1;
+        slideBtns[0].classList.add("active");
+        
+        function nextSlide(){
+            tempo = 5;
+            for(let i = 1; i < 7; i++){
+                document.getElementById("grupo-" + i).style.visibility = "hidden";
+                document.getElementById("grupo-" + i).style.position = "absolute";
             }
+
+            slideBtns.forEach(element => element.classList.remove("active"));
+            slideBtns[grupo-1].classList.add("active");
 
             document.getElementById("imagem-grupo").style.backgroundImage = "url('./img/grupos/grupo-" + grupo + ".png')";
             document.getElementById("grupo-" + grupo).style.position = "";
             document.getElementById("grupo-" + grupo).style.visibility = "visible";
-        },5000);
+        }
+        setInterval(function(){
+            tempo -= 1;
+            
+            if(tempo == 0){
+                grupo++;
+                if(grupo == 7){ 
+                    grupo = 1;
+                }
+                nextSlide();
+            }
+        },1000);
+
+        function gotoSlide(slide){
+            grupo = slide;
+            nextSlide();
+        }
     </script>
 </html>

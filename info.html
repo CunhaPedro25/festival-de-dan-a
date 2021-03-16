@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Festival - Informações</title>
 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <link rel="stylesheet" type="text/css" href="./estilo.css"/>
+    <link rel="stylesheet" href="./css/info.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
     <style>
@@ -29,22 +29,26 @@
     </header>
 
 
-    <div class="content-box">
-        <div style="top: 120px;" id="map"></div>
+    <div id="content">
+        <div class="big-title">
+            <div class="gradient">
+                <h1>Como Chegar</h1>
+            </div>
+        </div>
+        <div class="info">
+            <div class="texto">
+                <p>A nossa escola é facil de encontrar, Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo quasi distinctio, deleniti ab aut consequatur sint blanditiis eius omnis, nobis repudiandae, placeat culpa minima ad accusamus odit. Vitae, veritatis quia.</p>
+                <p>Morada: Av. do Atlântico, 4904-860 Viana do Castelo</p>
+            </div>
+            <h1>Contactos</h1>
+            <p>Alguma duvida do Festival, o email a contactar é: amas@esmonserrate.org</p>
+            <p>Email: <a class="email" href="amas@esmonserrate.org">amas@esmonserrate.org</a></p>
+            <p>Telefone: 258 801 800</p>
+        </div>
     </div>
 
-
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-    <script>
-        var schoolMap = L.map('map').setView([41.6936, -8.8417], 16);
-
-        L.tileLayer( 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-            subdomains: ['a','b','c']
-        }).addTo(schoolMap);
-
-        L.marker( [41.69365, -8.84166] )
-            .addTo(schoolMap);
-    </script>
+    <footer>
+        <img src="./img/footer.jpg">
+    </footer>
 </body>
 </html>
