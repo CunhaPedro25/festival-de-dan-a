@@ -1,0 +1,140 @@
+#content a{
+    padding: 5px 10px;
+    margin: auto;
+    margin-top: 0;
+    border-radius: 5px;
+    text-decoration: none;
+    color: black;
+}
+
+#content a:hover{
+    background-color: rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+
+.big-title,
+.description,
+.info{
+    height: 100vh;
+}
+
+.lado-esquerda,
+.lado-direita{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.lado-esquerda,
+.lado-direita p{
+    font-size: 40px;
+    margin: 0;
+}
+
+.big-title{
+    background-image: url("../img/backgroundDancing.png");
+    background-attachment: fixed;
+    background-size: cover;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.gradient h1{
+    margin-bottom: 0;
+}
+
+.gradient p{
+    margin: auto;
+    margin-top: 0;
+}
+
+.description{
+    display: grid;
+
+    grid-template-columns: 50% 50%;
+    background-color: white;
+    font-size: 30px;
+}
+.description iframe{
+    width: 100%;
+    height: 100%;
+}
+.description .lado-direita{
+    flex-direction: row;
+}
+.description h2{
+    font-size: 40px;
+}
+.description p{
+    font-size: 20px;
+    width: 70%;
+    margin: auto;
+}
+.description ul{
+    margin-left: auto;
+    counter-reset: slideshowNav;
+}
+.description ul li{
+    width: 10px;
+    height: 10px;
+    position: relative;
+    margin: 10px;
+    padding: 0;
+    border-radius: 0;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    padding: 1px;
+    background: rgba(0,0,0,0.5);
+    -webkit-transition: all .3s ease-out;
+    transition: all .3s ease-out;
+}
+.description ul li::before{
+    font-size: 15px;
+    line-height: 20px;
+    color: black;
+    counter-increment: slideshowNav;
+    content: "0" counter(slideshowNav);
+    opacity: 0;
+    -webkit-transition: opacity .3s ease-in-out;
+    transition: opacity .3s ease-in-out;
+    margin-right: auto;
+    position: relative;
+    right: 200%;
+}
+.active{
+    height: 20px !important;
+    background-color: black !important;
+}
+.active::before{
+    opacity: 1 !important;
+}
+
+.imagem-grupo{
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+.grupos{
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.info{
+    background-image: url("../img/escolaBackground.png");
+    background-size: cover;
+    
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.info .lado-direita p{
+    margin: auto;
+    margin-bottom: 0;
+}

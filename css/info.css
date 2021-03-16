@@ -1,0 +1,33 @@
+.email{
+    color: black;
+    text-decoration: underline !important;
+    background-color: transparent !important;
+}
+.email:hover{
+    color: rgba(0, 0, 0, 0.6) !important;
+}
+
+.big-title{
+    background-image: url("../img/map.png");
+}
+
+.gradient{
+    height: 50vh;
+    background-image: linear-gradient(transparent, white);
+    text-align: center;
+}
+.gradient h1{
+    font-size: 60px;
+}
+
+.info{
+    height: 100vh;
+    background-color: white;
+}
+.info h1,p{
+    margin-left: 50px;
+}
+
+.texto{
+    width: 50%;
+}
