@@ -2,6 +2,7 @@ body{
     margin: 0;
     padding: 0;
     font-family: 'Noto Sans JP', sans-serif;
+    overflow-x: hidden;
 }
 
 header{
@@ -69,9 +70,7 @@ header a{
     cursor: pointer;
 }
 
-.big-title,
-.description,
-.info{
+#content div{
     width: 100%;
 }
 
