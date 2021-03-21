@@ -11,17 +11,21 @@
     background-image: url("../img/map.png");
 }
 
+
 .gradient{
     height: 50vh;
-    background-image: linear-gradient(transparent, white);
+    background-image: linear-gradient(white, transparent, white);
     text-align: center;
+}
+.sem-topgradient{
+    background-image: linear-gradient(transparent, white);
 }
 .gradient h1{
     font-size: 60px;
 }
 
 .info{
-    height: 100vh;
+    height: 50vh;
     background-color: white;
 }
 .info h1,p{
@@ -29,5 +33,5 @@
 }
 
 .texto{
-    width: 50%;
+    width: 50% !important;
 }

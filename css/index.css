@@ -5,15 +5,20 @@
     border-radius: 5px;
     text-decoration: none;
     color: black;
+    border: 2px solid black;
+    text-align: center;
+    align-content: center;
 }
 
 #content a:hover{
     background-color: rgba(0,0,0,0.2);
     cursor: pointer;
+    border: 2px solid rgba(0,0,0,0.2);
 }
 
 .big-title,
 .description,
+.galeria,
 .info{
     height: 100vh;
 }
@@ -26,6 +31,7 @@
     height: 100%;
     align-items: center;
     justify-content: center;
+    text-align: center;
 }
 
 .lado-esquerda,
@@ -70,9 +76,12 @@
     font-size: 40px;
 }
 .description p{
-    font-size: 20px;
+    font-size: 15px;
     width: 70%;
     margin: auto;
+}
+.description a{
+    margin-top: 20px !important;
 }
 .description ul{
     margin-left: auto;
@@ -126,6 +135,20 @@
     text-align: center;
 }
 
+.galeria{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    background-size: cover;
+}
+
+.galeria a{
+    margin: auto;
+    margin-top: auto !important;
+}
+.galeria .lado-esquerda{
+    background-image: linear-gradient(to right, white, transparent);
+}
+
 .info{
     background-image: url("../img/escolaBackground.png");
     background-size: cover;
@@ -136,5 +159,8 @@
 
 .info .lado-direita p{
     margin: auto;
+    margin-bottom: 0;
+}
+#data{
     margin-bottom: 0;
 }

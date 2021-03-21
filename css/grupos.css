@@ -1,3 +1,32 @@
 .big-title{
-    background-image: url("../img/grupodança_titulogrande.jpg");
+    background-image: url("../img/grupodança_titulogrande.png");
+}
+
+#content a{
+    text-decoration: underline !important;
+}
+
+#content a:hover{
+    color: rgba(0, 0, 0, 0.5) !important;
+    background-color: transparent !important;
+}
+
+.group-list{
+    display: flex;
+    flex-direction: column;
+}
+.group{
+    display: flex;
+    flex-direction: row;
+    width: 115ch !important;
+    height: 300px;
+    border: 1px solid black; /*just to see the width*/
+    margin: 50px auto;
+}
+.group div{
+    margin-left: 15px;
+}
+
+.group img{
+    height: auto;
 }
