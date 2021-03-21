@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Festival - Informações</title>
+        <title>Festival - Galeria</title>
 
         <link rel="stylesheet" type="text/css" href="./estilo.css"/>
         <link rel="stylesheet" type="text/css" href="./css/galeria.css"/>
@@ -25,7 +25,7 @@
             <div id="header-buttons">
                 <a href="./grupos.html">Grupos</a>
                 <a href="./info.html">Informações</a>
-                <a href="#">Galeria</a>
+                <a href="">Galeria</a>
             </div>
         </header>
         <div id="content">
@@ -34,9 +34,50 @@
                     <h1>Galeria</h1>
                 </div>
             </div>
+            <div class="galeria">
+                <div class="wrapper-imagem">
+                    <li class="imagem" onclick="showImage(1)">
+                        <img src="./img/galeria/photo-1.png" />
+                    </li>
+                    <li class="imagem" onclick="showImage(2)">
+                        <img src="./img/galeria/photo-2.png" />
+                    </li>
+                    <li class="imagem" onclick="showImage(3)">
+                        <img src="./img/galeria/photo-3.png" />
+                    </li>
+                    <li class="imagem" onclick="showImage(4)">
+                        <img src="./img/galeria/photo-4.png" />
+                    </li>
+                    <li class="imagem" onclick="showImage(5)">
+                        <img src="./img/galeria/photo-5.png" />
+                    </li>
+                </div>
+            </div>
         </div>
+
+        <div id="popup" class="popup-background">
+            <div id="popup-content" class="popup-content"></div>
+        </div>
+        
         <footer>
             <img src="./img/footer.jpg">
         </footer>
+
+        <script>
+            function showImage(image){
+                document.getElementById("popup").style.display = "flex";
+                document.getElementById("popup-content").style.backgroundImage = "url('../img/galeria/photo-" + image + ".png')";
+            }
+
+            function closePopUp(){
+                document.getElementById("popup").style.display = "none";
+            }
+
+            window.onclick = function(event) {
+                if (event.target == document.getElementById("popup")) {
+                    closePopUp();
+                }
+            }
+        </script>
     </body>
 </html>

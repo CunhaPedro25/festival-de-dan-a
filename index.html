@@ -13,7 +13,7 @@
     </head>
     <body>
         <header>
-            <a href="#">
+            <a href="">
                 <h1>Festival de Dança na ESM</h1>
             </a>
             <div id="header-buttons">
@@ -38,13 +38,16 @@
                         <div id="grupos" class="grupos">
                             <div id="grupo-1" style="visibility: hidden; position: absolute;">
                                 <h2>Viana Dancers</h2>
-                                <p></p>
+                                <p>"Com a nossa música vamos pôr Viana a dançar!"</p>
+                                <p>A missão deles é pôr Viana a divertir-se, dançando ao som de "Happy" do Pharrell Williams.</p>
                             </div>
                             <div id="grupo-2" style="visibility: hidden; position: absolute;">
                                 <h2>Socos e Murros</h2>
                             </div>
                             <div id="grupo-3" style="visibility: hidden; position: absolute;">
                                 <h2>Irmandade de Patos</h2>
+                                <p>"Fomos feitos para abanar o capacete"</p>
+                                <p>Este grupo tá aqui para abanar as ancas até não haver mais força, são os experts de hip-hop</p>
                             </div>
                             <div id="grupo-4" style="visibility: hidden; position: absolute;">
                                 <h2>FrontStreet Boys</h2>
@@ -53,6 +56,8 @@
                             </div>
                             <div id="grupo-5" style="visibility: hidden; position: absolute;">
                                 <h2>Os Arriba Espanha</h2>
+                                <p>"Dança não é apenas movimento, é também sentimento"</p>
+                                <p>Com este evento, temos como objetivo entreter os espectadores e animar a criançada, ao som do Shakira - Waka Waka.</p>
                             </div>
                             <div id="grupo-6" style="visibility: hidden; position: absolute;">
                                 <h2>Arraial Minhoto</h2>
@@ -69,6 +74,12 @@
                         <li class="" onclick="gotoSlide(6)" data-slide></li>
                     </ul>
                 </div>
+            </div>
+            <div id="galeria" class="galeria">
+                <div class="lado-esquerda">
+                    <a href="./galeria.html">Veja a nossa Galeria</a>
+                </div>
+                <div class="lado-direita"></div>
             </div>
             <div class="info">
                 <div class="lado-esquerda">
@@ -145,6 +156,16 @@
         function gotoSlide(slide){
             grupo = slide;
             nextSlide();
+        }
+
+        //Imagem random para "galeria"
+        window.onload = choosePic;
+        let galeriaPasta = 5; //Quantidade fotos que tem na pasta galeria
+
+        function choosePic(){
+            randomNum = Math.floor((Math.random() * galeriaPasta)) + 1;
+            console.log(randomNum);
+            document.getElementById("galeria").style.backgroundImage = "url('../img/galeria/photo-" + randomNum + ".png')";
         }
     </script>
 </html>
