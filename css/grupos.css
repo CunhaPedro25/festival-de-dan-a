@@ -18,7 +18,7 @@
 .group{
     display: flex;
     flex-direction: row;
-    width: 115ch !important;
+    width: 1000px !important;
     height: 300px;
     border: 1px solid black; /*just to see the width*/
     margin: 50px auto;
