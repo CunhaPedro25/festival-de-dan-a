@@ -6,7 +6,8 @@ body{
 }
 
 header{
-    position: sticky;
+    transition: all 0.5s;
+    position: fixed;
     z-index: 2000;
     top: 0;
     margin: 0;
@@ -68,6 +69,16 @@ header a{
 #content a:hover{
     background-color: rgba(0,0,0,0.2);
     cursor: pointer;
+}
+
+.texto a{
+    text-decoration: underline !important;
+    padding: 0 0 !important;
+}
+
+.texto a:hover{
+    color: rgba(0, 0, 0, 0.5) !important;
+    background-color: transparent !important;
 }
 
 #content div{
