@@ -1,117 +1,116 @@
-.big-title{
-    background-image: url("../img/escolaBackground.png");
+.big-title {
+  background-image: url("../img/escolaBackground.png");
 }
 
-#galeria{
-    width: 100%;
-    box-sizing: border-box;
+#galeria {
+  width: 100%;
+  box-sizing: border-box;
 }
 
-#wrapper-imagem{
-    list-style: none;
-    margin: 0 auto;
-    max-width: 1600px;
-    padding: 0 65px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    flex-wrap: wrap;
-    -webkit-box-pack: start;
-    -ms-flex-pack: start;
-    justify-content: flex-start;
-    box-sizing: border-box;
+#wrapper-imagem {
+  list-style: none;
+  margin: 0 auto;
+  max-width: 1600px;
+  padding: 0 65px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  box-sizing: border-box;
 }
 
-.imagem{
-    flex-basis: 25%;
-    max-width: 25%;
-    padding: 10px 6px;
-    padding-bottom: 25px;
-    box-sizing: border-box;
+.imagem {
+  flex-basis: 25%;
+  max-width: 25%;
+  padding: 10px 6px;
+  padding-bottom: 25px;
+  box-sizing: border-box;
 }
 
-.imagem img{
-    width: 100%;
-    height: 100%;
-    transition: all 0.5s;
+.imagem img {
+  width: 100%;
+  height: 100%;
+  transition: all 0.5s;
 }
 
-.imagem img:hover{
-    cursor: pointer;
-    filter: drop-shadow(4px 4px 10px gray);
+.imagem img:hover {
+  cursor: pointer;
+  filter: drop-shadow(4px 4px 10px gray);
 }
 
-
-.popup-background{
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    animation: fade 1s cubic-bezier(.38,.05,.04,1.1);
-    background-color: rgba(0,0,0,0.6);
+.popup-background {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  animation: fade 1s cubic-bezier(0.38, 0.05, 0.04, 1.1);
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
-.popup-content{
-	width: inherit;
-    height: inherit;
-    max-width: 900px;
-    max-height: 500px;
-    background-position: center;
-    background-size: cover;
+.popup-content {
+  width: inherit;
+  height: inherit;
+  max-width: 900px;
+  max-height: 500px;
+  background-position: center;
+  background-size: cover;
 
-    display: flex;
-    flex-direction: row;
-    margin: auto;
+  display: flex;
+  flex-direction: row;
+  margin: auto;
 }
 
-.seta{
-    height: 100%;
-    width: 20%;
-    transition: all 0.5s;
+.seta {
+  height: 100%;
+  width: 20%;
+  transition: all 0.5s;
 
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-.seta span{
-    position: fixed;
-    margin: 220px 0;
+.seta span {
+  position: fixed;
+  margin: 220px 0;
 
-    color: #fff;
-    float: right;
-    font-size: 50px;
-    font-weight: bold;
-    margin-left: 15px;
+  color: #fff;
+  float: right;
+  font-size: 50px;
+  font-weight: bold;
+  margin-left: 15px;
 }
 
-.direita span{
-    margin-left: 140px;
+.direita span {
+  margin-left: 140px;
 }
 
-.seta span:hover{
-    color: #fff;
-    text-decoration: none;
-    cursor: pointer;
+.seta span:hover {
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
 }
 
-.esquerda:hover{
-    background-image: linear-gradient(to right, rgba(0,0,0,0.5), transparent);
-    cursor: pointer;
+.esquerda:hover {
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), transparent);
+  cursor: pointer;
 }
 
-.direita{
-    margin-left: auto;
+.direita {
+  margin-left: auto;
 }
 
-.direita:hover{
-    background-image: linear-gradient(to left, rgba(0,0,0,0.5), transparent);
-    cursor: pointer;
+.direita:hover {
+  background-image: linear-gradient(to left, rgba(0, 0, 0, 0.5), transparent);
+  cursor: pointer;
 }

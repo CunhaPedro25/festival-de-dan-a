@@ -10,6 +10,7 @@
         <link rel="stylesheet" type="text/css" href="./css/grupos.css"/>
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
         <style>
             #header-buttons a:nth-child(1):after{
                 transform: scaleX(1);
@@ -17,85 +18,101 @@
         </style>
     </head>
     <body>
-        <header>
-            <a href="./index.html">
-                <h1>Festival de Dança na ESM</h1>
-            </a>
-            <div id="header-buttons">
-                <a href="">Grupos</a>
-                <a href="./info.html">Informações</a>
-                <a href="./galeria.html">Galeria</a>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a href="./index.html" class="navbar-brand">Festival de Dança na ESM</a>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">Grupos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./info.html" class="nav-link">Informações</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./galeria.html" class="nav-link">Galeria</a>
+                    </li>
+                </ul>
             </div>
-        </header>
+        </nav>
+
         <div id="content">
             <div class="big-title">
                 <div class="gradient">
                     <h1>Grupos</h1>
                 </div>
             </div>
-            <div class="group-list">
-                <div class="group">
-                    <img src="./img/grupos/grupo-1.png" alt="Grupo 1">
-                    <div class="texto">
-                        <h1>Viana Dancers</h1>
-                        <p>"Com a nossa música vamos pôr Viana a dançar!"</p>
-                        <p>A missão deles é pôr Viana a divertir-se, dançando ao som de "Happy" do Pharrell Williams.</p>
-                        <p>Estilo: Freestyle</p>
-                        <p>Membros: Daniel Barbosa, Miguel, Raul Baltei, Rui Moura</p>
-                        <p>Video: <a href="#">Video não disponivel</a></p>
+            <div class="card-group" style="width: 81rem;">
+                <div class="card">
+                    <img src="./img/grupos/grupo-1.png" alt="Grupo 1" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Viana Dancers</h5>
+                        <p class="card-text">"Com a nossa música vamos pôr Viana a dançar!"</p>
+                        <p class="card-text">A missão deles é pôr Viana a divertir-se, dançando ao som de "Happy" do Pharrell Williams.</p>
+                        <p class="card-text">Estilo: Freestyle</p>
+                        <p class="card-text">Membros: Daniel Barbosa, Miguel, Raul Baltei, Rui Moura</p>
+                        <a href="#">Vídeo não disponível</a>
                     </div>
                 </div>
-                <div class="group">
-                    <img src="./img/grupos/grupo-2.png" alt="Grupo 2">
-                    <div class="texto">
-                        <h1>Socos e Murros</h1>
-                        <p>"Porquê falar quando podes dançar"</p>
-                        <p>Dançando ao ritmo clássico de hip hop e a macarena, os Socos e Murros vão mostrar as suas habilidades.</p>
-                        <p>Estilo: Hip Pop</p>
-                        <p>Membros: Daniel Alves, João Rodrigues, Jose Cunha, Martinho Teibão</p>
-                        <p>Video: <a href="https://www.youtube.com/watch?v=IZoLlgDAw2M">Veja no youtube</a></p>
+
+                <div class="card">
+                    <img src="./img/grupos/grupo-2.png" alt="Grupo 2" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Socos e Murros</h5>
+                        <p class="card-text">"Porquê falar quando podes dançar"</p>
+                        <p class="card-text">Dançando ao ritmo clássico de hip hop e a macarena, os Socos e Murros vão mostrar as suas habilidades.</p>
+                        <p class="card-text">Estilo: Hip-hop</p>
+                        <p class="card-text">Membros: Daniel Alves, João Rodrigues, Jose Cunha, Martinho Teibão</p>
+                        <a href="https://www.youtube.com/watch?v=IZoLlgDAw2M">Veja no Youtube</a>
                     </div>
                 </div>
-                <div class="group">
-                    <img src="./img/grupos/grupo-3.png" alt="Grupo 3">
-                    <div class="texto">
-                        <h1>Irmandade de Patos</h1>
-                        <p>"Fomos feitos para abanar o capacete"</p>
-                        <p>Este grupo tá aqui para abanar as ancas até não haver mais força, são os experts de hip-hop</p>
-                        <p>Estilo: ""</p>
-                        <p>Membros: Pedro Rodrigues, João Malheiro, Helder Passos, David Oliveira</p>
-                        <p>Video: <a href="https://youtu.be/Dfm12hX4SJY">Veja no youtube</a></p>
+
+                <div class="card">
+                    <img src="./img/grupos/grupo-3.png" alt="Grupo 3" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Irmandade de Patos</h5>
+                        <p class="card-text">"Fomos feitos para abanar o capacete"</p>
+                        <p class="card-text">Este grupo tá aqui para abanar as ancas até não haver mais força, são os experts de hip-hop</p>
+                        <p class="card-text">Estilo: Hip-hop</p>
+                        <p class="card-text">Membros: Pedro Rodrigues, João Malheiro, Helder Passos, David Oliveira</p>
+                        <a href="https://youtu.be/Dfm12hX4SJY">Veja no Youtube</a>
                     </div>
                 </div>
-                <div class="group">
-                    <img src="./img/grupos/grupo-4.png" alt="Grupo 4">
-                    <div class="texto">
-                        <h1>FrontStreet Boys</h1>
-                        <p>"Nesta quarentena, é Divertir e Curtir!"</p>
-                        <p>Diversão é com eles. Venha se divertir com os FrontStreet Boys no Festival de dança na ESM</p>
-                        <p>Estilo: Freestyle</p>
-                        <p>Membros: Pedro Cunha, João Alves, Gabriel Banks</p>
-                        <p>Video: <a href="https://www.youtube.com/watch?v=pjq21mUoJws">Veja no youtube</a></p>
+            </div>
+
+            <div class="card-group">
+                <div class="card">
+                    <img src="./img/grupos/grupo-4.png" alt="Grupo 4" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">FrontStreet Boys</h5>
+                        <p class="card-text">"Nesta quarentena, é Divertir e Curtir!"</p>
+                        <p class="card-text">Diversão é com eles. Venha se divertir com os FrontStreet Boys no Festival de dança na ESM</p>
+                        <p class="card-text">Estilo: Freestyle</p>
+                        <p class="card-text">Membros: Pedro Cunha, João Alves, Gabriel Banks</p>
+                        <a href="https://www.youtube.com/watch?v=pjq21mUoJws">Veja no Youtube</a>
                     </div>
                 </div>
-                <div class="group">
-                    <img src="./img/grupos/grupo-5.png" alt="Grupo 5">
-                    <div class="texto">
-                        <h1>Os Arriba Espanha</h1>
-                        <p>"Dança não é apenas movimento, é também sentimento"</p>
-                        <p>Com este evento, temos como objetivo entreter os espectadores e animar a criançada, ao som do Shakira - Waka Waka.</p>
-                        <p>Estilo: Freestyle</p>
-                        <p>Membros: Gabriel Vieira, Guilherme Barbosa, Rodrigo Barreiros, Rodrigo Gomes</p>
-                        <p>Video: <a href="https://www.youtube.com/watch?v=3IqjyKNU9gQ">Veja no youtube</a></p>
+
+                <div class="card">
+                    <img src="./img/grupos/grupo-5.png" alt="Grupo 5" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Os Arriba Espanha</h5>
+                        <p class="card-text">"Dança não é apenas movimento, é também sentimento"</p>
+                        <p class="card-text">Com este evento, têm como objetivo entreter os espectadores e animar a criançada, ao som do Shakira - Waka Waka.</p>
+                        <p class="card-text">Estilo: Freestyle</p>
+                        <p class="card-text">Membros: Gabriel Vieira, Guilherme Barbosa, Rodrigo Barreiros, Rodrigo Gomes</p>
+                        <a href="https://www.youtube.com/watch?v=3IqjyKNU9gQ">Veja no Youtube</a>
                     </div>
                 </div>
-                <div class="group">
-                    <img src="./img/grupos/grupo-6.png" alt="Grupo 6">
-                    <div class="texto">
-                        <h1>Arraial Minhoto</h1>
-                        <p>Estilo: Freestyle</p>
-                        <p>Membros: André Gomes, Francisco, António Filipe, Ruben Morais</p>
-                        <p>Video: <a href="https://www.youtube.com/watch?v=50dJnOG8DfA">Video não disponivel</a></p>
+
+                <div class="card">
+                    <img src="./img/grupos/grupo-6.png" alt="Grupo 6" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Arraial Minhoto</h5>
+                        <p class="card-text"></p>
+                        <p class="card-text"></p>
+                        <p class="card-text">Estilo: Freestyle</p>
+                        <p class="card-text">Membros: André Gomes, Francisco, António Filipe, Ruben Morais</p>
+                        <a href="https://www.youtube.com/watch?v=50dJnOG8DfA">Veja no Youtube</a>
                     </div>
                 </div>
             </div>
@@ -103,5 +120,7 @@
         <footer>
             <img src="./img/footer.jpg">
         </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
     </body>
 </html>
