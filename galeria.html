@@ -95,14 +95,11 @@
                 document.getElementById("popup").style.display = "flex";
                 document.getElementById("popup-content").style.backgroundImage = `url('./img/galeria/${images[image]}')`;
 
-                document.getElementById("header").style.top = "-130px";
-
                 currentImage = image;
             }
 
             function closePopUp(){
                 document.getElementById("popup").style.display = "none";
-                document.getElementById("header").style.top = "0";
             }
 
             function photoControl(side){
