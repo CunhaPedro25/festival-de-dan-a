@@ -25,8 +25,7 @@
         <div id="content">
             <div class="big-title">
                 <div class="gradient">
-                    <h1>Festival de Dança na ESM</h1>    
-                    <p>Estamos cá e continuamos a cuidar de N@S&@utros</p>
+                    <img class="cartaz" src="./img/cartaz.png"/>
                 </div>
             </div>
             <div class="description">
@@ -43,6 +42,8 @@
                             </div>
                             <div id="grupo-2" style="visibility: hidden; position: absolute;">
                                 <h2>Socos e Murros</h2>
+                                <p>"Porquê falar quando podes dançar"</p>
+                                <p>Dançando ao ritmo clássico de hip hop e a macarena, os Socos e Murros vão mostrar as suas habilidades.</p>
                             </div>
                             <div id="grupo-3" style="visibility: hidden; position: absolute;">
                                 <h2>Irmandade de Patos</h2>
@@ -96,6 +97,9 @@
             <img src="./img/footer.jpg">
         </footer>
     </body>
+
+    <script src="galeria.js"></script>
+    
     <script>
         var countDownDate = new Date("Apr 17, 2021 21:00:01").getTime(); //Data do countdown
         
@@ -159,13 +163,11 @@
         }
 
         //Imagem random para "galeria"
-        window.onload = choosePic;
-        let galeriaPasta = 5; //Quantidade fotos que tem na pasta galeria
+        setInterval(choosePic, 5000);
 
         function choosePic(){
-            randomNum = Math.floor((Math.random() * galeriaPasta)) + 1;
-            console.log(randomNum);
-            document.getElementById("galeria").style.backgroundImage = "url('./img/galeria/photo-" + randomNum + ".png')";
+            i = Math.floor((Math.random() * (images.length - 1))) + 1;
+            document.getElementById("galeria").style.backgroundImage = `url('./img/galeria/${images[i]}')`;
         }
     </script>
 </html>

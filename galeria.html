@@ -8,7 +8,6 @@
 
         <link rel="stylesheet" type="text/css" href="./estilo.css"/>
         <link rel="stylesheet" type="text/css" href="./css/galeria.css"/>
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
         <style>
@@ -18,7 +17,7 @@
         </style>
     </head>
     <body>
-        <header>
+        <header id="header">
             <a href="./index.html">
                 <h1>Festival de Dança na ESM</h1>
             </a>
@@ -34,24 +33,8 @@
                     <h1>Galeria</h1>
                 </div>
             </div>
-            <div class="galeria">
-                <div class="wrapper-imagem">
-                    <li class="imagem" onclick="showImage(1)">
-                        <img src="./img/galeria/photo-1.png" />
-                    </li>
-                    <li class="imagem" onclick="showImage(2)">
-                        <img src="./img/galeria/photo-2.png" />
-                    </li>
-                    <li class="imagem" onclick="showImage(3)">
-                        <img src="./img/galeria/photo-3.png" />
-                    </li>
-                    <li class="imagem" onclick="showImage(4)">
-                        <img src="./img/galeria/photo-4.png" />
-                    </li>
-                    <li class="imagem" onclick="showImage(5)">
-                        <img src="./img/galeria/photo-5.png" />
-                    </li>
-                </div>
+            <div id="galeria">
+                <div id="wrapper-imagem"></div>
             </div>
         </div>
 
@@ -66,17 +49,29 @@
             <img src="./img/footer.jpg">
         </footer>
 
+        <script src="galeria.js"></script>
+
         <script>
             var currentImage;
 
+            function createImages(){
+                for (i in images){
+                    document.getElementById("wrapper-imagem").innerHTML += `<li class="imagem" onclick="showImage(${i})" ><img src="./img/galeria/${images[i]}" /></li>`
+                }
+            }
+
             function showImage(image){
                 document.getElementById("popup").style.display = "flex";
-                document.getElementById("popup-content").style.backgroundImage = "url('./img/galeria/photo-" + image + ".png')";
+                document.getElementById("popup-content").style.backgroundImage = `url('./img/galeria/${images[image]}')`;
+
+                document.getElementById("header").style.top = "-130px";
+
                 currentImage = image;
             }
 
             function closePopUp(){
                 document.getElementById("popup").style.display = "none";
+                document.getElementById("header").style.top = "0";
             }
 
             function photoControl(side){
@@ -86,7 +81,12 @@
                     currentImage++;
                 }
 
-                document.getElementById("popup-content").style.backgroundImage = "url('./img/galeria/photo-" + currentImage + ".png')";
+                if(currentImage >= images.length)
+                    currentImage = 0;
+                else if (currentImage < 0)
+                    currentImage = images.length - 1;
+
+                document.getElementById("popup-content").style.backgroundImage = `url('./img/galeria/${images[currentImage]}')`;
             }
 
             window.onclick = function(event) {
@@ -94,6 +94,10 @@
                     closePopUp();
                 }
             }
+
+            window.onload = (event) => {
+                createImages();
+            };
         </script>
     </body>
 </html>
