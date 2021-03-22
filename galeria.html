@@ -56,7 +56,10 @@
         </div>
 
         <div id="popup" class="popup-background">
-            <div id="popup-content" class="popup-content"></div>
+            <div id="popup-content" class="popup-content">
+                <div class="seta esquerda" onclick="photoControl('left')"><span>&lt;</span></div>
+                <div class="seta direita" onclick="photoControl('right')"><span>&gt;</span></div>
+            </div>
         </div>
         
         <footer>
@@ -64,13 +67,26 @@
         </footer>
 
         <script>
+            var currentImage;
+
             function showImage(image){
                 document.getElementById("popup").style.display = "flex";
                 document.getElementById("popup-content").style.backgroundImage = "url('./img/galeria/photo-" + image + ".png')";
+                currentImage = image;
             }
 
             function closePopUp(){
                 document.getElementById("popup").style.display = "none";
+            }
+
+            function photoControl(side){
+                if(side == 'left'){
+                    currentImage--;
+                }else{
+                    currentImage++;
+                }
+
+                document.getElementById("popup-content").style.backgroundImage = "url('./img/galeria/photo-" + currentImage + ".png')";
             }
 
             window.onclick = function(event) {
