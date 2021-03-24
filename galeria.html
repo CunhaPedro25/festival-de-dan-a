@@ -11,6 +11,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
         <style>
             #header-buttons a:nth-child(3):after{
                 transform: scaleX(1);
@@ -37,43 +38,28 @@
         <div id="content">
             <div class="big-title">
                 <div class="gradient">
-                    <h1>Galeria</h1>
+                    <h1 class="animate__animated animate__fadeInUp">Galeria</h1>
                 </div>
             </div>
             <div id="galeria">
                 <div id="wrapper-imagem"></div>
             </div>
         </div>
-
-        <div id="popup" class="popup-background">
-            <div id="popup-content" class="popup-content">
-                <div class="seta esquerda" onclick="photoControl('left')"><span>&lt;</span></div>
-                <div class="seta direita" onclick="photoControl('right')"><span>&gt;</span></div>
-            </div>
-        </div>-
-
-        <!--<div id="galeriaSlide" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="./img/escolaBackground.jpg" class="d-block w-100" alt="">
-                </div>
-                <div class="carousel-item">
-                    <img src="./img/axis.jpg" class="d-block w-100" alt="">
-                </div>
-                <div class="carousel-item">
-                    <img src="./img/galeria/photo-3.png" class="d-block w-100" alt="">
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#galeriaSlide">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#galeriaSlide">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>-->
         
+        <div id="popup" class="popup-background animate__fadeIn">
+            <div class="popup-content">
+                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                    <div id="carousel-inner" class="carousel-inner"></div>
+                    <a class="carousel-control-prev" role="button" onclick="prevImg()" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    </a>
+                    <a class="carousel-control-next" role="button" onclick="nextImg()" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
         <footer>
             <img src="./img/footer.jpg">
         </footer>
@@ -83,38 +69,28 @@
         <script src="galeria.js"></script>
 
         <script>
-            var currentImage;
 
             function createImages(){
                 for (i in images){
-                    document.getElementById("wrapper-imagem").innerHTML += `<li class="imagem" onclick="showImage(${i})" ><img src="./img/galeria/${images[i]}" /></li>`
+                    document.getElementById("wrapper-imagem").innerHTML += `<img src="./img/galeria/${images[i]}" class="img-thumbnail animate__animated animate__zoomIn" onclick="showImage(${i})"/>`
+                    document.getElementById("carousel-inner").innerHTML += `<div class="carousel-item" data-slide><img id="imagem-active" class="d-block w-100 ratio ratio-16x9" src="./img/galeria/${images[i]}" alt="slide"></div>`
                 }
             }
+            window.addEventListener('load', createImages());
 
-            function showImage(image){
+            let slideImg = document.querySelectorAll("[data-slide]");
+            var currentImg;
+
+            function showImage(img){
                 document.getElementById("popup").style.display = "flex";
-                document.getElementById("popup-content").style.backgroundImage = `url('./img/galeria/${images[image]}')`;
 
-                currentImage = image;
+                slideImg.forEach(element => element.classList.remove("active"));
+                slideImg[img].classList.add("active");
+                currentImg = img;
             }
 
             function closePopUp(){
                 document.getElementById("popup").style.display = "none";
-            }
-
-            function photoControl(side){
-                if(side == 'left'){
-                    currentImage--;
-                }else{
-                    currentImage++;
-                }
-
-                if(currentImage >= images.length)
-                    currentImage = 0;
-                else if (currentImage < 0)
-                    currentImage = images.length - 1;
-
-                document.getElementById("popup-content").style.backgroundImage = `url('./img/galeria/${images[currentImage]}')`;
             }
 
             window.onclick = function(event) {
@@ -123,9 +99,27 @@
                 }
             }
 
-            window.onload = (event) => {
-                createImages();
-            };
+            function prevImg(){
+                slideImg[currentImg].classList.remove("active");
+
+                if(currentImg > 0)
+                    currentImg--;
+                else
+                    currentImg = images.length-1;
+                
+                slideImg[currentImg].classList.add("active");
+            }
+
+            function nextImg(){
+                slideImg[currentImg].classList.remove("active");
+
+                if(currentImg < images.length-1)
+                    currentImg++;
+                else
+                    currentImg = 0;
+
+                slideImg[currentImg].classList.add("active");
+            }
         </script>
     </body>
 </html>
